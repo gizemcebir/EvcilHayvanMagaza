@@ -3,7 +3,7 @@
 ## Proje Ekibindeki Kişiler:
 - Gizem Cebir-235260146  
 - Zehra Nur Öztürk  
-- Toprak Henaz   
+- Toprak Henaz-225260106     
 
 ## Dönem Projesi Gereksinimleri
 

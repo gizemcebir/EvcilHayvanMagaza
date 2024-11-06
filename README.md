@@ -34,6 +34,21 @@ Bu proje, bir mağaza yönetim sistemi olarak kapsamlı bir şekilde tasarlanmı
 - Ayrıca, tedarikçilerle ilgili tüm bilgileri yönetebilirler; hangi tedarikçilerin hangi ürünleri sağladığı gibi verilere erişip güncellemeler yapabilirler.
 - Yönetici, kargo süreçlerini de izleyerek teslimat süreçlerinin aksamadan yürütülmesini sağlar.
 - İade işlemleri yönetici tarafından takip edilir; müşterilerin yaptığı iade talepleri kaydedilir ve uygun işlemler yapılır.
+## Veritabanı Fonksiyonları
+Sistem; sipariş yönetimi, stok kontrolü, kargo ve teslimat takibi, çalışan performans ölçümü, müşteri ve tedarikçi yönetimi gibi birçok işlevi içermektedir:
+
+### Sipariş Yönetimi: 
+- Siparişler, müşterilerin taleplerine göre oluşturulur ve sipariş detayları kayıt altına alınır. Siparişlere ait ürünler, miktarlar ve birim fiyatlar kaydedilir.
+### Stok Kontrolü: 
+- Ürün stok seviyeleri sürekli izlenir. Stok seviyesinin yetersiz olması durumunda tedarikçilere bilgi verilebilir veya yönetici gerekli işlemleri yapabilir.
+### Kargo ve Teslimat Takibi:
+- Her sipariş için bir kargo kaydı oluşturulur, kargo durumu ve teslimat tarihi gibi bilgiler güncellenir. Müşteriler ve çalışanlar, kargo durumunu sistem üzerinden izleyebilir.
+### Çalışan Performansı:
+- Çalışanların işledikleri siparişler ve kazandıkları komisyonlar üzerinden performansları ölçülür. Bu veriler, çalışanların değerlendirilmesi ve ödüllendirilmesi için kullanılabilir.
+### Müşteri Yönetimi:
+- Müşteriler, iletişim bilgileri ve sipariş geçmişi ile sistemde kayıt altına alınır. Bu sayede müşteri ilişkileri yönetimi daha etkin hale getirilir.
+### Tedarikçi Yönetimi: 
+- Tedarikçiler, sağladıkları ürünler ve iletişim bilgileri ile sistemde kayıt altındadır. Tedarikçilerle ilişkiler bu sistem üzerinden yönetilerek ürün tedariği optimize edilir.
 
 
 

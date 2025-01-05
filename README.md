@@ -50,5 +50,114 @@ Sistem; sipariş yönetimi, stok kontrolü, kargo ve teslimat takibi, çalışan
 ### Tedarikçi Yönetimi: 
 - Tedarikçiler, sağladıkları ürünler ve iletişim bilgileri ile sistemde kayıt altındadır. Tedarikçilerle ilişkiler bu sistem üzerinden yönetilerek ürün tedariği optimize edilir.
 
+### Tablolar ve Açıklamaları
 
+#### **1. Kategoriler**
+- **kategoriler_id**: Kategorinin benzersiz kimliği.
+- **kategori_adi**: Kategorinin adı.
+- **ust_kategori_id**: Alt kategoriler için üst kategoriyi temsil eden sütun.
 
+#### **2. Ürünler**
+- **urun_id**: Ürünün benzersiz kimliği.
+- **urun_adi**: Ürünün adı.
+- **urun_stok**: Mevcut stok miktarı.
+- **urun_fiyat**: Ürünün fiyatı.
+- **kategori_id**: Ürünün bağlı olduğu kategorinin ID’si.
+
+#### **3. Tedarikçiler**
+- **tedarikci_id**: Tedarikçinin benzersiz kimliği.
+- **tedarikci_adi**: Tedarikçinin adı.
+- **adres**: Tedarikçi adresi.
+- **iletisim_no**: Tedarikçi iletişim numarası.
+
+#### **4. Ürün Tedarikçi**
+- **urun_tedarikci_id**: Ürün ve tedarikçi ilişkisini temsil eden benzersiz kimlik.
+- **urun_id**: İlgili ürünün ID’si.
+- **tedarikci_id**: İlgili tedarikçinin ID’si.
+
+#### **5. Siparişler**
+- **siparis_id**: Siparişin benzersiz kimliği.
+- **musteri_id**: Siparişi veren müşterinin kimliği.
+- **calisan_id**: Siparişi işleyen çalışanın kimliği.
+- **toplam_fiyat**: Siparişin toplam tutarı.
+
+#### **6. Sipariş Detay**
+- **siparis_detay_id**: Sipariş detayının benzersiz kimliği.
+- **siparis_id**: İlgili siparişin kimliği.
+- **urun_id**: Siparişte yer alan ürünün kimliği.
+- **urun_sayisi**: Sipariş edilen ürün miktarı.
+- **birim_fiyat**: Ürünün birim fiyatı.
+
+#### **7. Müşteriler**
+- **musteri_id**: Müşterinin benzersiz kimliği.
+- **musteri_adi**: Müşterinin adı.
+- **musteri_telefon**: Müşterinin telefon numarası.
+
+#### **8. Adresler**
+- **adres_id**: Adresin benzersiz kimliği.
+- **musteri_id**: Adresin sahibi müşterinin kimliği.
+- **adres_detayi**: Adres bilgisi.
+- **sehir**: Şehir adı.
+- **posta_kodu**: Posta kodu.
+
+#### **9. Çalışanlar**
+- **calisan_id**: Çalışanın benzersiz kimliği.
+- **calisan_adi**: Çalışanın adı.
+- **calisan_tel**: Çalışanın telefon numarası.
+- **calisan_maas**: Çalışanın maaşı.
+- **komisyon**: Çalışanın siparişlerden kazandığı komisyon oranı.
+
+#### **10. Çalışan Performansı**
+- **performans_id**: Performans kaydının benzersiz kimliği.
+- **calisan_id**: İlgili çalışanın kimliği.
+- **siparis_id**: Çalışanın işlediği siparişin kimliği.
+- **komisyon_tutar**: İşlenen siparişten kazanılan komisyon.
+
+#### **11. İade İşlemleri**
+- **iade_id**: İade işleminin benzersiz kimliği.
+- **siparis_id**: İade edilen siparişin kimliği.
+- **urun_id**: İade edilen ürünün kimliği.
+- **iade_tarihi**: İade işlemi tarihi.
+- **iade_sebebi**: İade nedeni.
+
+#### **12. Kargo**
+- **kargo_id**: Kargo işleminin benzersiz kimliği.
+- **siparis_id**: Kargo edilen siparişin kimliği.
+- **kargo_durumu**: Kargonun mevcut durumu.
+- **kargo_tarih**: Kargonun teslim tarihi.
+
+#### **13. Ürün Yorumları**
+- **yorum_id**: Yorumun benzersiz kimliği.
+- **urun_id**: Yorum yapılan ürünün kimliği.
+- **musteri_id**: Yorumu yapan müşterinin kimliği.
+- **yorum_metin**: Yorumun içeriği.
+- **yorum_tarihi**: Yorumun yapıldığı tarih.
+- **puan**: Ürün için verilen puan.
+
+---
+
+## İlişkiler
+- **Kategoriler** ile **Ürünler** arasında birden çoğa ilişki.
+- **Ürünler** ile **Sipariş Detay** arasında birden çoğa ilişki.
+- **Müşteriler** ile **Adresler** arasında bire bir ilişki.
+- **Çalışanlar** ile **Çalışan Performansı** arasında birden çoğa ilişki.
+- **Tedarikçiler** ile **Ürün Tedarikçi** arasında birden çoğa ilişki.
+- **Siparişler** ile **Sipariş Detay**, **Kargo** ve **İade İşlemleri** arasında bire bir ilişkiler.
+
+## Teknik Gereksinimler ve Yöntemler
+
+1. **Veritabanı Platformu**:  
+   SQL Server kullanılacaktır.
+
+2. **Transaction Yönetimi**:  
+   Sipariş ve iade işlemlerinin atomik olarak işlenmesi sağlanacak.
+
+3. **Tetikleyiciler ve Saklı Yordamlar**:  
+   - Tetikleyici: Sipariş eklendiğinde stok miktarının otomatik güncellenmesi.
+   - Saklı Yordam: Çalışan performans raporları oluşturulması.
+
+4. **Örnek Veri Seti**:  
+   Tabloların işlevselliğini test etmek için örnek veriler eklenecektir.
+
+5. **Güncelleme ve Sorgulama İşlevleri**:  
+   Kullanıcı, ürün ve sipariş detaylarına yönelik CRUD işlemleri desteklenecektir.
